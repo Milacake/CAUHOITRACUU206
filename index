@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+function calculateDifference() {
+    // Nhập số lượng phần tử
+    let n = parseInt(prompt("Nhập số lượng phần tử của mảng (n <= 20):"));
+    
+    // Kiểm tra số lượng phần tử <= 20
+    if (n > 20 || n <= 0 || isNaN(n)) {
+        alert("Số lượng phần tử phải là số nguyên dương và không vượt quá 20!");
+        return;
+    }
+    
+    // Khai báo mảng
+    let arr = [];
+    
+    // Nhập các phần tử cho mảng
+    for (let i = 0; i < n; i++) {
+        let element = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+        
+        // Kiểm tra giá trị nhập vào có phải là số nguyên không
+        if (isNaN(element)) {
+            alert("Vui lòng nhập số nguyên!");
+            i--; // Nhập lại phần tử này
+            continue;
+        }
+        
+        arr.push(element);
+    }
+    
+    // Hiển thị mảng
+    console.log("Mảng đã nhập:", arr);
+    alert("Mảng đã nhập: " + arr);
+    
+    // Tính tổng các số chẵn và tổng các số lẻ
+    let sumEven = 0;
+    let sumOdd = 0;
+    
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            sumEven += arr[i];
+        } else {
+            sumOdd += arr[i];
+        }
+    }
+    
+    // Tính hiệu
+    let result = sumEven - sumOdd;
+    
+    // Hiển thị kết quả chi tiết
+    console.log(`Kết quả = (${sumEven}) - (${sumOdd}) = ${result}`);
+    alert(`Kết quả = (${sumEven}) - (${sumOdd}) = ${result}`);
+    
+    return result;
+}
+
+// Gọi hàm thực thi
+calculateDifference();
+    </script>
+</body>
+</html>
